@@ -4,14 +4,14 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-#define INSTRUCTIONS              \
+#define OPCODES              \
 	{                           \
 		{"push", push},       \
 		    {"pall", pall},   \
 		    {"pint", pint},   \
 		    {"pop", pop},     \
 		    {"swap", swap},   \
-		    {"nop", nop},     \
+		   /** {"nop", nop},     \
 		    {"div", _div},    \
 		    {"mul", _mul},    \
 		    {"add", _add},    \
@@ -20,7 +20,7 @@
 		    {"pchar", pchar}, \
 		    {"pstr", pstr},   \
 		    {"rotl", rotl},   \
-		    {"rotr", rotr},   \
+		    {"rotr", rotr},*/   \
 		{                     \
 			NULL, NULL      \
 		}                     \

@@ -34,7 +34,8 @@ void pop(stack_t **stack, unsigned int line_num)
  */
 void pall(stack_t **stack, unsigned int line_num __attribute__((unused)))
 {
-	print_stack(*stack);
+	if (*stack)
+		print_stack(*stack);
 }
 /**
  * push - push an element to the stack top

@@ -23,8 +23,6 @@ void _add(stack_t **stack, unsigned int line_num)
 	(*stack)->n = value;
 }
 
-#include "monty.h"
-
 /**
  * nop -  does nothing
  * @stack: doesnt matter

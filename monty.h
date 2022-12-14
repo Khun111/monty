@@ -2,7 +2,10 @@
 #define MONTY_H
 
 #include <stddef.h>
+#include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define OPCODES              \
 	{                           \

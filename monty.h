@@ -11,13 +11,13 @@
 		    {"pint", pint},   \
 		    {"pop", pop},     \
 		    {"swap", swap},   \
-		   /** {"nop", nop},     \
+		    {"nop", nop},     \
 		    {"div", _div},    \
 		    {"mul", _mul},    \
 		    {"add", _add},    \
 		    {"sub", _sub},    \
 		    {"mod", mod},     \
-		    {"pchar", pchar}, \
+		    /**{"pchar", pchar}, \
 		    {"pstr", pstr},   \
 		    {"rotl", rotl},   \
 		    {"rotr", rotr},*/   \
@@ -76,25 +76,25 @@ stack_t *queue_node(stack_t **stack, const int n);
 void free_stack(stack_t *stack);
 size_t print_stack(const stack_t *stack);
 
-void push(stack_t **stack, unsigned int line_cnt);
-void pall(stack_t **stack, unsigned int line_cnt);
-void pint(stack_t **stack, unsigned int line_cnt);
-void swap(stack_t **stack, unsigned int line_cnt);
-void pop(stack_t **stack, unsigned int line_cnt);
-void nop(stack_t **stack, unsigned int line_cnt);
+void push(stack_t **stack, unsigned int line_num);
+void pall(stack_t **stack, unsigned int line_num);
+void pint(stack_t **stack, unsigned int line_num);
+void swap(stack_t **stack, unsigned int line_num);
+void pop(stack_t **stack, unsigned int line_num);
+void nop(stack_t **stack, unsigned int line_num);
 
-void _div(stack_t **stack, unsigned int line_cnt);
-void _add(stack_t **stack, unsigned int line_cnt);
-void _sub(stack_t **stack, unsigned int line_cnt);
-void _mul(stack_t **stack, unsigned int line_cnt);
-void mod(stack_t **stack, unsigned int line_cnt);
+void _div(stack_t **stack, unsigned int line_num);
+void _add(stack_t **stack, unsigned int line_num);
+void _sub(stack_t **stack, unsigned int line_num);
+void _mul(stack_t **stack, unsigned int line_num);
+void mod(stack_t **stack, unsigned int line_num);
 
-void pchar(stack_t **stack, unsigned int line_cnt);
-void pstr(stack_t **stack, unsigned int line_cnt);
+void pchar(stack_t **stack, unsigned int line_num);
+void pstr(stack_t **stack, unsigned int line_num);
 void rotl(stack_t **stack, unsigned int line_count);
 void rotr(stack_t **stack, unsigned int line_count);
 
-void opcode(stack_t **stack, char *str, unsigned int line_cnt);
+void opcode(stack_t **stack, char *str, unsigned int line_num);
 
 int is_digit(char *string);
 int isnumber(char *str);

@@ -7,17 +7,17 @@
 /**
 * pop - removes the top element of the stack
 * @stack: stack given by main in start.c
-* @line_cnt: line number for error messages
+* @line_num: line number for error messages
 *
 * Return: void
 */
-void pop(stack_t **stack, unsigned int line_cnt)
+void pop(stack_t **stack, unsigned int line_num)
 {
 	stack_t *tmp = NULL;
 
 	if (!stack || !*stack)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_cnt);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
@@ -32,28 +32,28 @@ void pop(stack_t **stack, unsigned int line_cnt)
 /**
  * pall - prints the stack
  * @stack: stack given by main in start.c
- * @line_cnt: amount of lines
+ * @line_num: amount of lines
  *
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line_cnt __attribute__((unused)))
+void pall(stack_t **stack, unsigned int line_num __attribute__((unused)))
 {
 	print_stack(*stack);
 }
 /**
  * push - push element into the stack
  * @stack: stack given by main
- * @line_cnt: amount of lines
+ * @line_num: amount of lines
  *
  * Return: void
  */
-void push(stack_t **stack, unsigned int line_cnt)
+void push(stack_t **stack, unsigned int line_num)
 {
 	char *n = global.argument;
 
 	if ((is_digit(n)) == 0)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_cnt);
+		fprintf(stderr, "L%d: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
@@ -76,15 +76,15 @@ void push(stack_t **stack, unsigned int line_cnt)
 /**
  * pint - print the value at the top of the stack
  * @stack: stack given by main in start.c
- * @line_cnt: amount of lines
+ * @line_num: amount of lines
  *
  * Return: void
  */
-void pint(stack_t **stack, unsigned int line_cnt)
+void pint(stack_t **stack, unsigned int line_num)
 {
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_cnt);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
 		exit(EXIT_FAILURE);
 
 	}
@@ -94,18 +94,18 @@ void pint(stack_t **stack, unsigned int line_cnt)
 /**
  * swap -  swaps data from top to previous
  * @stack: stack given by main
- * @line_cnt: amount of lines
+ * @line_num: amount of lines
  *
  * Return: void
  */
-void swap(stack_t **stack, unsigned int line_cnt)
+void swap(stack_t **stack, unsigned int line_num)
 {
 	stack_t *tmp = NULL;
 	int tmp_n = 0;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_cnt);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
@@ -116,24 +116,3 @@ void swap(stack_t **stack, unsigned int line_cnt)
 	tmp->next->n = tmp_n;
 }
 
-/**
- * _add -  adds the first two nodes of the stack
- * @stack: stack given by main
- * @line_cnt: line counter
- *
- * Return: void
- */
-void _add(stack_t **stack, unsigned int line_cnt)
-{
-	int result;
-
-	if (!stack || !*stack || !((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_cnt);
-		exit(EXIT_FAILURE);
-	}
-
-	result = ((*stack)->next->n) + ((*stack)->n);
-	pop(stack, line_cnt); /*For top node*/
-	(*stack)->n = result;
-}

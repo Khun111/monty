@@ -34,7 +34,7 @@ void nop(stack_t **stack, unsigned int line_num)
 	(void) line_num;
 }
 /**
- * _sub -  subtracts the top element of the stack from the second top element of the stack
+ * _sub -  subtracts the top element from the second top element
  * @stack: stack from main
  * @line_num: line number
  */

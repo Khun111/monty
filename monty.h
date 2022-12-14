@@ -60,11 +60,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
-* struct help - argument for the current opcode
-* @data_struct: stack mode, stack (default) and queue
+* struct help - argument for the working instruction
+* @data_struct: stack mode, stack or queue
 * @argument: the arguments of the string
-*
-* Description: global structure used to pass data around the functions easily
 */
 typedef struct help
 {
@@ -73,12 +71,13 @@ typedef struct help
 } help;
 help global;
 
-/* stack utility functions available in linked_list.c */
+/* list helper functions in listops.c */
 stack_t *add_node(stack_t **stack, const int n);
 stack_t *queue_node(stack_t **stack, const int n);
 void free_stack(stack_t *stack);
 size_t print_stack(const stack_t *stack);
 
+/*Functions to implement*/
 void push(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);
 void pint(stack_t **stack, unsigned int line_num);

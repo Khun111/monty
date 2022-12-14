@@ -20,10 +20,10 @@
 		    {"add", _add},    \
 		    {"sub", _sub},    \
 		    {"mod", mod},     \
-		    /**{"pchar", pchar}, \
+		    {"pchar", pchar}, \
 		    {"pstr", pstr},   \
 		    {"rotl", rotl},   \
-		    {"rotr", rotr},*/   \
+		    {"rotr", rotr},   \
 		{                     \
 			NULL, NULL      \
 		}                     \

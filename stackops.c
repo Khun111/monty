@@ -13,7 +13,7 @@
 */
 void pop(stack_t **stack, unsigned int line_num)
 {
-	stack_t *tmp = NULL;
+	stack_t *cursor = NULL;
 
 	if (!stack || !*stack)
 	{
@@ -21,9 +21,9 @@ void pop(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = (*stack)->next;
+	cursor = (*stack)->next;
 	free(*stack);
-	*stack = tmp;
+	*stack = cursor;
 	if (!*stack)
 		return; /* prevents errors cause next line might assign a NULL */
 	(*stack)->prev = NULL;
@@ -100,19 +100,19 @@ void pint(stack_t **stack, unsigned int line_num)
  */
 void swap(stack_t **stack, unsigned int line_num)
 {
-	stack_t *tmp = NULL;
-	int tmp_n = 0;
+	stack_t *cursor = NULL;
+	int cursor_n = 0;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	tmp = *stack;
-	tmp_n = tmp->n;
-	tmp->n = tmp_n;
+	cursor = *stack;
+	cursor_n = cursor->n;
+	cursor->n = cursor_n;
 
-	tmp->n = tmp->next->n;
-	tmp->next->n = tmp_n;
+	cursor->n = cursor->next->n;
+	cursor->next->n = cursor_n;
 }
 

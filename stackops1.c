@@ -10,7 +10,7 @@
  */
 void _add(stack_t **stack, unsigned int line_num)
 {
-	int result;
+	int value;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
@@ -18,9 +18,9 @@ void _add(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	result = ((*stack)->next->n) + ((*stack)->n);
+	value = ((*stack)->next->n) + ((*stack)->n);
 	pop(stack, line_num); /*For top node*/
-	(*stack)->n = result;
+	(*stack)->n = value;
 }
 
 #include "monty.h"
@@ -42,7 +42,7 @@ void nop(stack_t **stack, unsigned int line_num)
  */
 void _sub(stack_t **stack, unsigned int line_num)
 {
-	int result;
+	int value;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
@@ -50,9 +50,9 @@ void _sub(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	result = ((*stack)->next->n) - ((*stack)->n);
+	value = ((*stack)->next->n) - ((*stack)->n);
 	pop(stack, line_num);/*For top node*/
-	(*stack)->n = result;
+	(*stack)->n = value;
 }
 
 /**
@@ -62,7 +62,7 @@ void _sub(stack_t **stack, unsigned int line_num)
  */
 void _div(stack_t **stack, unsigned int line_num)
 {
-	int result;
+	int value;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
@@ -77,9 +77,9 @@ void _div(stack_t **stack, unsigned int line_num)
 		return;
 	}
 
-	result = ((*stack)->next->n) / ((*stack)->n);
+	value = ((*stack)->next->n) / ((*stack)->n);
 	pop(stack, line_num);/*For top node*/
-	(*stack)->n = result;
+	(*stack)->n = value;
 }
 
 /**
@@ -89,7 +89,7 @@ void _div(stack_t **stack, unsigned int line_num)
  */
 void _mul(stack_t **stack, unsigned int line_num)
 {
-	int result;
+	int value;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
@@ -98,7 +98,7 @@ void _mul(stack_t **stack, unsigned int line_num)
 		return;
 	}
 
-	result = ((*stack)->next->n) * ((*stack)->n);
+	value = ((*stack)->next->n) * ((*stack)->n);
 	pop(stack, line_num);/*For top node*/
-	(*stack)->n = result;
+	(*stack)->n = value;
 }

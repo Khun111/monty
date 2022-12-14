@@ -10,7 +10,7 @@
  */
 void mod(stack_t **stack, unsigned int line_num)
 {
-	int result;
+	int value;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
@@ -25,7 +25,7 @@ void mod(stack_t **stack, unsigned int line_num)
 		return;
 	}
 
-	result = ((*stack)->next->n) % ((*stack)->n);
+	value = ((*stack)->next->n) % ((*stack)->n);
 	pop(stack, line_num);/*For top node*/
-	(*stack)->n = result;
+	(*stack)->n = value;
 }

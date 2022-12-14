@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
- * mod - computes the remainder of the division
- * @stack: stack given by main
- * @line_num: line counter
+ * mod - divides second top by top and computes the remainder
+ * @stack: stack from main
+ * @line_num: line number
  */
 void mod(stack_t **stack, unsigned int line_num)
 {
@@ -22,28 +22,26 @@ void mod(stack_t **stack, unsigned int line_num)
 	}
 
 	value = ((*stack)->next->n) % ((*stack)->n);
-	pop(stack, line_num);/*For top node*/
+	pop(stack, line_num);
 	(*stack)->n = value;
 }
 
 /**
- * pchar - prints the int at the top of the stack as char
- * @stack: stack given by main
- * @line_cnt: amount of lines
- *
- * Return: void
+ * pchar - prints the char at the top of the stack
+ * @stack: stack from main
+ * @line_num: line number
  */
-void pchar(stack_t **stack, unsigned int line_cnt)
+void pchar(stack_t **stack, unsigned int line_num)
 {
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_cnt);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
 		exit(EXIT_FAILURE);
 		return;
 	}
 	if (isascii((*stack)->n) == 0)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_cnt);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
 		exit(EXIT_FAILURE);
 		return;
 	}
@@ -51,13 +49,11 @@ void pchar(stack_t **stack, unsigned int line_cnt)
 }
 
 /**
- * pstr - prints the contents of a stack_t stack as a string
- * @stack: stack given by main
- * @line_cnt: line counter for error messages
- *
- * Return: nothing
+ * pstr - prints the string starting at the top of the stack
+ * @stack: stack from main
+ * @line_num: line number
  */
-void pstr(stack_t **stack, unsigned int line_cnt __attribute__((unused)))
+void pstr(stack_t **stack, unsigned int line_num __attribute__((unused)))
 {
 	stack_t *active = *stack;
 
@@ -72,12 +68,10 @@ void pstr(stack_t **stack, unsigned int line_cnt __attribute__((unused)))
 }
 
 /**
-* rotl - rotates the first element of the stack
-* @stack: stack head
-* @line_count: line count
-*
-* Return: void
-*/
+ * rotl - rotates the stack to the top
+ * @stack: stack from main
+ * @line_count: line number
+ */
 void rotl(stack_t **stack, unsigned int line_count)
 {
 	stack_t *left;
@@ -89,21 +83,19 @@ void rotl(stack_t **stack, unsigned int line_count)
 
 	left = right = *stack;
 
-	while (right->next) /* move the right pointer to the last node */
+	while (right->next)
 		right = right->next;
-	right->next = left; /* a circle infinite linked list loop */
+	right->next = left;
 	left->prev = right;
-	*stack = left->next; /* so we cut the link between the 0 and 1 element */
+	*stack = left->next;
 	(*stack)->prev->next = NULL;
 	(*stack)->prev = NULL;
 }
 
 /**
-* rotr - rotates the last node of a stack_t stack
-* @stack: stack head
-* @line_count: line count
-*
-* Return: void
+* rotr - rotates the stack to the bottom
+* @stack: stack from main
+* @line_count: line number
 */
 void rotr(stack_t **stack, unsigned int line_count)
 {

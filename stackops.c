@@ -6,10 +6,8 @@
 
 /**
 * pop - removes the top element of the stack
-* @stack: stack given by main in start.c
-* @line_num: line number for error messages
-*
-* Return: void
+* @stack: stack from main
+* @line_num: line number
 */
 void pop(stack_t **stack, unsigned int line_num)
 {
@@ -25,27 +23,23 @@ void pop(stack_t **stack, unsigned int line_num)
 	free(*stack);
 	*stack = cursor;
 	if (!*stack)
-		return; /* prevents errors cause next line might assign a NULL */
+		return;
 	(*stack)->prev = NULL;
 }
 
 /**
- * pall - prints the stack
- * @stack: stack given by main in start.c
- * @line_num: amount of lines
- *
- * Return: void
+ * pall - prints all the values on the stack from the top of the stack.
+ * @stack: stack from main
+ * @line_num: number of lines
  */
 void pall(stack_t **stack, unsigned int line_num __attribute__((unused)))
 {
 	print_stack(*stack);
 }
 /**
- * push - push element into the stack
- * @stack: stack given by main
- * @line_num: amount of lines
- *
- * Return: void
+ * push - push an element to the stack top
+ * @stack: stack from main
+ * @line_num: number of lines
  */
 void push(stack_t **stack, unsigned int line_num)
 {
@@ -74,11 +68,9 @@ void push(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * pint - print the value at the top of the stack
- * @stack: stack given by main in start.c
- * @line_num: amount of lines
- *
- * Return: void
+ * pint - prints value at stacktop
+ * @stack: stack from main
+ * @line_num: number of lines
  */
 void pint(stack_t **stack, unsigned int line_num)
 {
@@ -92,11 +84,9 @@ void pint(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * swap -  swaps data from top to previous
- * @stack: stack given by main
- * @line_num: amount of lines
- *
- * Return: void
+ * swap -  swaps the top two elements of the stack
+ * @stack: stack from main
+ * @line_num: number of lines
  */
 void swap(stack_t **stack, unsigned int line_num)
 {

@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * is_digit - checks if a str is a digit
- * @str: str to check
+ * is_digit - checks for digit in a string
+ * @str: string to check
  *
- * Return: 1 if success, 0 if not
+ * Return: 1\0
  */
 int is_digit(char *str)
 {
@@ -21,10 +21,10 @@ int is_digit(char *str)
 	return (1);
 }
 /**
- * isnumber - checks if a str is a number
- * @str: provided str
+ * is_digit - checks for number in a string
+ * @str: string to check
  *
- * Return: 1 if the str is a number, else, 0.
+ * Return: 1\0
  */
 int isnumber(char *str)
 {

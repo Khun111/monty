@@ -4,53 +4,53 @@
 #include <string.h>
 #include "monty.h"
 
-void file_error(char *argv);
-void error_usage(void);
-int status = 0;		/* global var declaration */
+void error_handler(char *argv);
+void usage_man(void);
+int status = 0;
 
 /**
  * main - main function
  * @argv: arguments array
  * @argc: args count
  *
- * Return: nothing
+ * Return: exit status
  */
 int main(int argc, char **argv)
 {
 	FILE *file;
-	size_t buf_len = 0;
+	size_t bufsize = 0;
 	char *buffer = NULL;
 	char *str = NULL;
 	stack_t *stack = NULL;
-	unsigned int line_cnt = 1;
+	unsigned int line_num = 1;
 
-	global.data_struct = 1;  /* struct defined in monty.h L58*/
+	global.data_struct = 1;
 	if (argc != 2)
-		error_usage(); /* def in line 82 */
+		usage_man();
 
 	file = fopen(argv[1], "r");
 
 	if (!file)
-		file_error(argv[1]);  /* def in line 68 */
+		error_handler(argv[1]);
 
-	while ((getline(&buffer, &buf_len, file)) != (-1))
+	while ((getline(&buffer, &bufsize, file)) != (-1))
 	{
 		if (status)
 			break;
 		if (*buffer == '\n')
 		{
-			line_cnt++;
+			line_num++;
 			continue;
 		}
 		str = strtok(buffer, " \t\n");
 		if (!str || *str == '#')
 		{
-			line_cnt++;
+			line_num++;
 			continue;
 		}
 		global.argument = strtok(NULL, " \t\n");
-		opcode(&stack, str, line_cnt);
-		line_cnt++;
+		opcode(&stack, str, line_num);
+		line_num++;
 	}
 	free(buffer);
 	free_stack(stack);
@@ -59,27 +59,19 @@ int main(int argc, char **argv)
 }
 
 /**
- * file_error - prints file error message and exits
- * @argv: argv given by main()
- *
- * Desc: print msg if  not possible to open the file
- * Return: nothing
+ * error_handler - handles error messages
+ * @argv: argv from main function
  */
-void file_error(char *argv)
+void error_handler(char *argv)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", argv);
 	exit(EXIT_FAILURE);
 }
 
 /**
- * error_usage - prints usage message and exits
- *
- * Desc: if user does not give any file or more than
- * one argument to your program
- *
- * Return: nothing
+ * usage_man - prints usage messages
  */
-void error_usage(void)
+void usage_man(void)
 {
 	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);

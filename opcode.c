@@ -7,7 +7,7 @@
  * opcode - handles instructions
  * @stack: stack in main function
  * @str: string to compare
- * @line_num: amount of lines
+ * @line_num: number of lines
  */
 void opcode(stack_t **stack, char *str, unsigned int line_num)
 {

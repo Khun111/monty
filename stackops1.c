@@ -4,9 +4,9 @@
 #include <string.h>
 #include "monty.h"
 /**
- * _add -  adds the first two nodes of the stack
- * @stack: stack given by main
- * @line_num: line counter
+ * _add -  adds the top two elements of the stack
+ * @stack: stack from main
+ * @line_num: line number
  */
 void _add(stack_t **stack, unsigned int line_num)
 {
@@ -19,14 +19,14 @@ void _add(stack_t **stack, unsigned int line_num)
 	}
 
 	value = ((*stack)->next->n) + ((*stack)->n);
-	pop(stack, line_num); /*For top node*/
+	pop(stack, line_num);
 	(*stack)->n = value;
 }
 
 /**
- * nop -  does nothing
- * @stack: doesnt matter
- * @line_num : for nothing
+ * nop -  doesn’t do anything
+ * @stack: nil
+ * @line_num: nil
  */
 void nop(stack_t **stack, unsigned int line_num)
 {
@@ -34,9 +34,9 @@ void nop(stack_t **stack, unsigned int line_num)
 	(void) line_num;
 }
 /**
- * _sub -  substracts the first two nodes of the stack
- * @stack: stack given by main
- * @line_num: line counter
+ * _sub -  subtracts the top element of the stack from the second top element of the stack
+ * @stack: stack from main
+ * @line_num: line number
  */
 void _sub(stack_t **stack, unsigned int line_num)
 {
@@ -49,14 +49,14 @@ void _sub(stack_t **stack, unsigned int line_num)
 	}
 
 	value = ((*stack)->next->n) - ((*stack)->n);
-	pop(stack, line_num);/*For top node*/
+	pop(stack, line_num);
 	(*stack)->n = value;
 }
 
 /**
- * _div - divides the next top value by the top value
- * @stack: stack given by main
- * @line_num: line counter
+ * _div - divides the second top element by the top element
+ * @stack: stack from main
+ * @line_num: line number
  */
 void _div(stack_t **stack, unsigned int line_num)
 {
@@ -76,14 +76,14 @@ void _div(stack_t **stack, unsigned int line_num)
 	}
 
 	value = ((*stack)->next->n) / ((*stack)->n);
-	pop(stack, line_num);/*For top node*/
+	pop(stack, line_num);
 	(*stack)->n = value;
 }
 
 /**
- * _mul - divides the next top value by the top value
- * @stack: stack given by main
- * @line_num: line counter
+ * _mul - multiplies the second top element by the top element
+ * @stack: stack from main
+ * @line_num: line number
  */
 void _mul(stack_t **stack, unsigned int line_num)
 {
@@ -97,6 +97,6 @@ void _mul(stack_t **stack, unsigned int line_num)
 	}
 
 	value = ((*stack)->next->n) * ((*stack)->n);
-	pop(stack, line_num);/*For top node*/
+	pop(stack, line_num);
 	(*stack)->n = value;
 }
